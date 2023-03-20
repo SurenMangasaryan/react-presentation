@@ -42,7 +42,7 @@ export function Uploader() {
                         <button className='upload-btn' onClick={onImageRemoveAll}>Remove all images</button>
                         {imageList.map((image, index) => (
                             <div key={index} className="image-item">
-                                <img src={image['data_url']} alt="" width="200" />
+                                <img src={image.data_url} alt="" width="200" />
                                 <div className="image-item__btn-wrapper">
                                     <button className='upload-btn' onClick={() => onImageUpdate(index)}>Update</button>
                                     <button className='upload-btn' onClick={() => onImageRemove(index)}>Remove</button>

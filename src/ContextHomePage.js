@@ -24,11 +24,15 @@ export default function ContextHomePage({ children }) {
             modal.current.style.display = "none"
         }
     }
-
+    
     const addToForm = (evt) => {
         evt.preventDefault();
         setBool(!bool);
         if (title !== "" && description !== "") {
+            if (title.length > 10 || description.length > 10) {
+                title.substring(0, 8);
+                description.substring(0, 8);
+            }
             setImgArr([
                 ...imgArr,
                 {
