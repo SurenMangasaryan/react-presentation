@@ -141,8 +141,21 @@ a {
     flex-wrap: wrap;
 }
 
-.slide-box{
+.slide-box {
     display: flex;
     justify-content: center;
     padding: 100px 0;
+}
+
+.img-btn-box {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.btn2{
+    background-color: white;
+    color: #330033;
+    border: 1px solid #330033;
+    border-radius: 10px;
 }

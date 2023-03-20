@@ -4,7 +4,7 @@ import { ContextHome } from '../../../../../../ContextHomePage';
 
 export function Uploader() {
 
-    const { images, setImages, allImages, setAllImages } = useContext(ContextHome);
+    const { images, setImages, onAdd } = useContext(ContextHome);
     const maxNumber = 69;
 
     const onChange = (imageList) => {
@@ -12,12 +12,7 @@ export function Uploader() {
 
     };
 
-    const onAdd = (img) => {
-        setAllImages([
-            ...allImages,
-            img,
-        ]);
-    }
+    
 
     return (
         <div className='uploader'>

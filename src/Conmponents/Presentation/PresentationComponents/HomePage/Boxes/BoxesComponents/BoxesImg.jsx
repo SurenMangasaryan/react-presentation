@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { v4 as uuidv4 } from 'uuid';
+import { ContextHome } from '../../../../../../ContextHomePage';
 
 export default function BoxesImg({ images }) {
+
+    const { onAdd } = useContext(ContextHome);
+
     return (
         <div>
             {images.map(image => {
                 return (
-                    <img key={uuidv4()} src={`${image.data_url}`} alt="" width={"100px"} height={"60px"}/>
+                    <div className='img-btn-box'>
+                        <img key={uuidv4()} src={`${image.data_url}`} alt="" width={"150px"} height={"80px"} />
+                        <button className='upload-btn btn2' onClick={() => onAdd(image.data_url)}>Add to slider list</button>
+                    </div>
                 )
             })}
         </div>

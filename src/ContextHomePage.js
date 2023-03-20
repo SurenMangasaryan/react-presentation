@@ -24,7 +24,14 @@ export default function ContextHomePage({ children }) {
             modal.current.style.display = "none"
         }
     }
-    
+
+
+    const onAdd = (img) => {
+        setAllImages([
+            ...allImages,
+            img,
+        ]);
+    }
 
     const addToForm = (evt) => {
         evt.preventDefault();
@@ -55,7 +62,8 @@ export default function ContextHomePage({ children }) {
         imgArr,
         listHeight,
         refDesc, refTit,
-        allImages, setAllImages
+        allImages, setAllImages,
+        onAdd
     };
 
     return (
