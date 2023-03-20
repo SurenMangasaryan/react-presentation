@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import { ContextHome } from '../../../../../ContextHomePage'
 import { Uploader } from './ModalElements/Uploader';
 import FormModal from './ModalElements/FormModal';
-import RequestAnswer from './ModalElements/RequestAnswer';
 
 export default function Modal() {
 
@@ -16,7 +15,6 @@ export default function Modal() {
             }}>X</p>
 
             <FormModal />
-            <RequestAnswer />
             <Uploader />
         </div>
     )

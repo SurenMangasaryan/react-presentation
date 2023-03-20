@@ -4,12 +4,20 @@ import { ContextHome } from '../../../../../../ContextHomePage';
 
 export function Uploader() {
 
-    const { images, setImages } = useContext(ContextHome);
+    const { images, setImages, allImages, setAllImages } = useContext(ContextHome);
     const maxNumber = 69;
 
     const onChange = (imageList) => {
         setImages(imageList);
+
     };
+
+    const onAdd = (img) => {
+        setAllImages([
+            ...allImages,
+            img,
+        ]);
+    }
 
     return (
         <div className='uploader'>
@@ -46,6 +54,7 @@ export function Uploader() {
                                 <div className="image-item__btn-wrapper">
                                     <button className='upload-btn' onClick={() => onImageUpdate(index)}>Update</button>
                                     <button className='upload-btn' onClick={() => onImageRemove(index)}>Remove</button>
+                                    <button className='upload-btn' onClick={() => onAdd(image.data_url)}>Add to slider list</button>
                                 </div>
                             </div>
                         ))}

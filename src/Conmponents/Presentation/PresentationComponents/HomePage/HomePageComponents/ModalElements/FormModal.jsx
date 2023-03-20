@@ -1,17 +1,17 @@
-import React, { useContext } from 'react'
+import React, { memo, useContext } from 'react'
 import { ContextHome } from '../../../../../../ContextHomePage'
 import ModalDescription from './ModalDescription'
 import ModalTitle from './ModalTitle'
 
-export default function FormModal() {
+export default memo(function FormModal() {
 
-    const { addToForm, closeModal } = useContext(ContextHome);
+    const { addToForm } = useContext(ContextHome);
 
     return (
-        <form className='modal-form' onSubmit={(evt) => { addToForm(evt); closeModal() }}>
+        <form className='modal-form' onSubmit={(evt) => { addToForm(evt) }}>
             <ModalTitle />
             <ModalDescription />
             <button className='login-btn second'>Add to presentations list</button>
         </form>
     )
-}
+})

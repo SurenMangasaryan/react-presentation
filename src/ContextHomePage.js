@@ -3,15 +3,15 @@ import React, { createContext, useRef, useState } from 'react'
 export const ContextHome = createContext();
 
 export default function ContextHomePage({ children }) {
-
-
     const [images, setImages] = useState([]);
     const [imgArr, setImgArr] = useState([]);
+    const [allImages, setAllImages] = useState([]);
     const [bool, setBool] = useState(true);
     const modal = useRef("");
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
     const listHeight = useRef("");
+    const refTit = useRef("");
+    const refDesc = useRef("");
+
 
     const openModal = () => {
         if (bool) {
@@ -25,39 +25,37 @@ export default function ContextHomePage({ children }) {
         }
     }
     
+
     const addToForm = (evt) => {
         evt.preventDefault();
-        setBool(!bool);
-        if (title !== "" && description !== "") {
-            if (title.length > 10 || description.length > 10) {
-                title.substring(0, 8);
-                description.substring(0, 8);
-            }
+        if (refTit.current.value !== "" && refDesc.current.value !== "") {
+            closeModal();
+            setBool(!bool);
             setImgArr([
                 ...imgArr,
                 {
-                    title: title,
-                    description: description,
+                    title: refTit.current.value,
+                    description: refDesc.current.value,
                     data: `${new Date()}`,
                     img: [
                         ...images
                     ]
                 }
             ])
-        };
-        setTitle("");
-        setDescription("");
+        }
+        refTit.current.value = "";
+        refDesc.current.value = "";
     }
 
     const values = {
         bool, setBool,
-        modal, closeModal,
-        openModal,
-        title, setTitle,
-        description, setDescription,
+        modal, closeModal, openModal,
         images, setImages,
-        addToForm, imgArr,
-        listHeight
+        addToForm,
+        imgArr,
+        listHeight,
+        refDesc, refTit,
+        allImages, setAllImages
     };
 
     return (

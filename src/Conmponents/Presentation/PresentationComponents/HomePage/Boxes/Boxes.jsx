@@ -6,16 +6,13 @@ import BoxesImg from './BoxesComponents/BoxesImg';
 export default function Boxes() {
 
     const { imgArr, listHeight } = useContext(ContextHome);
-
     useEffect(() => {
         if (imgArr.length >= 5 && imgArr.length <= 8) {
             listHeight.current.style.height = "200vh"
         } else if (imgArr.length >= 8 && imgArr.length <= 15) {
             listHeight.current.style.height = "300vh"
-        } else {
-            listHeight.current.style.height = "400vh"
         }
-    }, [imgArr])
+    }, [imgArr.length, listHeight])
 
     return (
         <div className='special-box'>
@@ -24,8 +21,8 @@ export default function Boxes() {
                     {imgArr.map(item => {
                         return (
                             <div className='one-box' key={uuidv4()}>
-                                <p className='p'>Title: {item.title}</p>
-                                <p className='p'>Description: {item.description}</p>
+                                <p className='p'>Title: {item.title.length > 10 ? item.title.substring(0, 6) + "..." : item.title}</p>
+                                <p className='p'>Description:{item.description.length > 10 ? item.description.substring(0, 6) + "..." : item.description}</p>
                                 <BoxesImg images={item.img} />
                                 <p className='p'>Date: {JSON.stringify(item.date)}</p>
                             </div>

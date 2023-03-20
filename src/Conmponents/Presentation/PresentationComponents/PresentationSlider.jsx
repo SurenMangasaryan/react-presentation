@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import SimpleImageSlider from "react-simple-image-slider";
+import { ContextHome } from '../../../ContextHomePage';
+
 
 export default function PresentationSlider() {
+
+  const { allImages } = useContext(ContextHome);
+
   return (
-    <div>PresentationSlider</div>
+    <div className='slide-box'>
+      {allImages.length > 0 ? <SimpleImageSlider
+        width={896}
+        height={504}
+        images={allImages}
+        showBullets={true}
+        showNavs={true}
+      /> : ""}
+
+    </div>
   )
 }

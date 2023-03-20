@@ -3,12 +3,12 @@ import { ContextHome } from '../../../../../../ContextHomePage'
 
 export default function ModalTitle() {
 
-    const { title, setTitle } = useContext(ContextHome);
+    const { refTit } = useContext(ContextHome);
 
     return (
         <div className='username-box'>
             <label htmlFor="title" className='user-name-label'>Title</label>
-            <input type="text" id='title' className='user-name-input inp' value={title} onChange={(evt) => { setTitle(evt.target.value) }} />
+            <input type="text" id='title' className='user-name-input inp' ref={refTit} />
         </div>
     )
 }

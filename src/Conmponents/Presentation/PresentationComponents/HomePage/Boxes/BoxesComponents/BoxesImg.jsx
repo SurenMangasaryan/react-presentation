@@ -6,7 +6,7 @@ export default function BoxesImg({ images }) {
         <div>
             {images.map(image => {
                 return (
-                    <img key={uuidv4()} src={`${image.data_url}`} alt="" width={"100px"} />
+                    <img key={uuidv4()} src={`${image.data_url}`} alt="" width={"100px"} height={"60px"}/>
                 )
             })}
         </div>

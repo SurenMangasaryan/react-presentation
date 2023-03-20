@@ -3,12 +3,12 @@ import { ContextHome } from '../../../../../../ContextHomePage'
 
 export default function RequestAnswer() {
 
-    const { title, description } = useContext(ContextHome);
+    const { refTit, refDesc } = useContext(ContextHome);
 
     return (
         <div className='title-description'>
-            <p className='p'>Title: {title}</p>
-            <p className='p'>Description: {description}</p>
+            <p className='p'>Title: {refTit === null ? refTit.current.value : null}</p>
+            <p className='p'>Description: {refDesc === null ? refDesc.current.value : null}</p>
         </div>
     )
 }
