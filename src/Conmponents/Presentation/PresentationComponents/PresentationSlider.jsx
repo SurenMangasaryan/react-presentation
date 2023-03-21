@@ -1,11 +1,16 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import SimpleImageSlider from "react-simple-image-slider";
 import { ContextHome } from '../../../ContextHomePage';
 
 
 export default function PresentationSlider() {
 
-  const { allImages } = useContext(ContextHome);
+  const { allImages, listHeight } = useContext(ContextHome);
+
+  useEffect(() => {
+    listHeight.current.style.height = "100vh";
+  },
+    [listHeight])
 
   return (
     <div className='slide-box'>

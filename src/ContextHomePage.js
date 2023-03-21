@@ -12,7 +12,6 @@ export default function ContextHomePage({ children }) {
     const refTit = useRef("");
     const refDesc = useRef("");
 
-
     const openModal = () => {
         if (bool) {
             modal.current.style.display = "block"
@@ -24,7 +23,6 @@ export default function ContextHomePage({ children }) {
             modal.current.style.display = "none"
         }
     }
-
 
     const onAdd = (img) => {
         setAllImages([
