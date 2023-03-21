@@ -50,6 +50,7 @@ export default function ContextHomePage({ children }) {
         }
         refTit.current.value = "";
         refDesc.current.value = "";
+        setImages([]);
     }
 
     const values = {

@@ -21,7 +21,6 @@ export default function PresentationSlider() {
         showBullets={true}
         showNavs={true}
       /> : ""}
-
     </div>
   )
 }
